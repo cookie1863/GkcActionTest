@@ -1,0 +1,19 @@
+name: Website Health Check
+
+on:
+  schedule:
+    - cron: '0 * * * *'  # Run every hour
+  workflow_dispatch:
+
+jobs:
+  website-health-check:
+    runs-on: ubuntu-latest
+    name: License Check
+    steps:
+      - uses: actions/checkout@v2
+      - uses: theritikchoure/websentry@main
+        with:
+          website-url: 'localhistory.group'  # Set the website URL you want to check
+          max-retries: '3'
+          retry-interval: '5s'
+          request-timeout: '10s'
