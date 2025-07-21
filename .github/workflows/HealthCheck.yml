@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: theritikchoure/websentry@main
         with:
-          website-url: 'example.localhistory.group'  # Set the website URL you want to check
+          website-url: 'localhistory.group,example.localhistory.group'  # Set the website URL you want to check
           max-retries: '3'
           retry-interval: '5s'
           request-timeout: '10s'
